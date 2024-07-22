@@ -1,5 +1,9 @@
 package com.gringotts.userservice.config;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
@@ -8,11 +12,20 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class KeyCloakProperties {
 
     @Value("${app.config.keycloak.server-url}")
     private String serverUrl;
 
+    /**
+     * -- GETTER --
+     *  Returns the realm.
+     *
+     */
+    @Getter
     @Value("${app.config.keycloak.realm}")
     private String realm;
 
@@ -45,12 +58,4 @@ public class KeyCloakProperties {
         return keycloakInstance;
     }
 
-    /**
-     * Returns the realm.
-     *
-     * @return the realm
-     */
-    public String getRealm() {
-        return realm;
-    }
 }
