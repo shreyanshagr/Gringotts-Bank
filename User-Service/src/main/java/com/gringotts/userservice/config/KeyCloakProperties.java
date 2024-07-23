@@ -20,11 +20,6 @@ public class KeyCloakProperties {
     @Value("${app.config.keycloak.server-url}")
     private String serverUrl;
 
-    /**
-     * -- GETTER --
-     *  Returns the realm.
-     *
-     */
     @Getter
     @Value("${app.config.keycloak.realm}")
     private String realm;
@@ -37,12 +32,6 @@ public class KeyCloakProperties {
 
     private static Keycloak keycloakInstance = null;
 
-    /**
-     * Returns an instance of Keycloak.
-     * If the instance is null, it creates a new instance using the provided configuration.
-     *
-     * @return The Keycloak instance
-     */
     public Keycloak getKeycloakInstance() {
 
         if (keycloakInstance == null) {

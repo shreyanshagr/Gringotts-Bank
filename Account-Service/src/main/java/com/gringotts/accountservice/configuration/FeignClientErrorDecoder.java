@@ -1,8 +1,8 @@
-package com.gringotts.userservice.config;
-
+package com.gringotts.accountservice.configuration;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gringotts.userservice.exception.GlobalException;
+
+import com.gringotts.accountservice.exception.GlobalException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
@@ -16,24 +16,26 @@ import java.util.Objects;
 @Slf4j
 public class FeignClientErrorDecoder implements ErrorDecoder {
 
-
     @Override
-    public Exception decode(String s, Response response) {
+    public Exception decode(String s,Response response) {
 
         GlobalException globalException = extractGlobalException(response);
 
-        switch (response.status()) {
-            case 400 -> {
-                log.error("global exception is handled by feign client");
-                return globalException;
-            }
-            default -> {
-                log.error("common exception thrown");
-                return new Exception();
-            }
+        log.info("response status: "+response.status());
+        if (response.status() == 400) {
+            log.error("Error in request went through feign client: {}", globalException.getErrorMessage() + " - " + globalException.getErrorCode());
+            return globalException;
         }
+        log.error("general exception went through feign client");
+        return new Exception();
     }
 
+    /**
+     * Extracts a GlobalException object from the response.
+     *
+     * @param response The response object containing the exception information
+     * @return The GlobalException object extracted from the response, or null if extraction fails
+     */
     private GlobalException extractGlobalException(Response response) {
 
         GlobalException globalException = null;
@@ -61,4 +63,3 @@ public class FeignClientErrorDecoder implements ErrorDecoder {
         return globalException;
     }
 }
-

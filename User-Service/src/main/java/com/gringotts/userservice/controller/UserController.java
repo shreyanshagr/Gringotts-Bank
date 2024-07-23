@@ -45,36 +45,18 @@ public class UserController {
         return new ResponseEntity<>(userService.updateUserStatus(id, userUpdate), HttpStatus.OK);
     }
 
-    /**
-     * Updates a user with the given ID.
-     *
-     * @param id The ID of the user to update.
-     * @param userUpdate The updated user information.
-     * @return The response with the updated user information.
-     */
     @PutMapping("{id}")
     public ResponseEntity<Response> updateUser(@PathVariable Long id, @RequestBody UserUpdate userUpdate) {
         return new ResponseEntity<>(userService.updateUser(id, userUpdate), HttpStatus.OK);
     }
 
-    /**
-     * Retrieves a user by their ID.
-     *
-     * @param userId the ID of the user to retrieve
-     * @return the user details as a ResponseEntity
-     */
     @GetMapping("/{userId}")
     public ResponseEntity<UserDto> readUserById(@PathVariable Long userId) {
         log.info("reading user by ID");
         return ResponseEntity.ok(userService.readUserById(userId));
     }
 
-    /**
-     * Retrieves the user with the specified account ID.
-     *
-     * @param accountId The account ID of the user to retrieve.
-     * @return The user DTO associated with the account ID.
-     */
+
 //    @GetMapping("/accounts/{accountId}")
 //    public ResponseEntity<UserDto> readUserByAccountId(@PathVariable String accountId) {
 //        return ResponseEntity.ok(userService.readUserByAccountId(accountId));
