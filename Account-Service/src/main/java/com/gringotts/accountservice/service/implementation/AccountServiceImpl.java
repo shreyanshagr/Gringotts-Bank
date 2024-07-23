@@ -2,12 +2,14 @@ package com.gringotts.accountservice.service.implementation;
 
 import com.gringotts.accountservice.exception.*;
 import com.gringotts.accountservice.external.SequenceService;
+import com.gringotts.accountservice.external.TransactionService;
 import com.gringotts.accountservice.external.UserService;
 import com.gringotts.accountservice.mapper.AccountMapper;
 import com.gringotts.accountservice.model.AccountStatus;
 import com.gringotts.accountservice.model.AccountType;
 import com.gringotts.accountservice.model.dto.AccountDto;
 import com.gringotts.accountservice.model.dto.AccountStatusUpdate;
+import com.gringotts.accountservice.model.dto.external.TransactionResponse;
 import com.gringotts.accountservice.model.dto.external.UserDto;
 import com.gringotts.accountservice.model.dto.response.Response;
 import com.gringotts.accountservice.model.entity.Account;
@@ -22,6 +24,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 import static com.gringotts.accountservice.model.Constants.ACC_PREFIX;
@@ -37,6 +40,7 @@ public class AccountServiceImpl implements AccountService {
     private final UserService userService;
     private final AccountRepository accountRepository;
     private final SequenceService sequenceService;
+    private final TransactionService transactionService;
 
     private final AccountMapper accountMapper = new AccountMapper();
 
@@ -151,4 +155,10 @@ public class AccountServiceImpl implements AccountService {
                     return accountDto;
                 }).orElseThrow(ResourceNotFound::new);
     }
+    @Override
+    public List<TransactionResponse> getTransactionsFromAccountId(String accountId) {
+
+        return transactionService.getTransactionsFromAccountId(accountId);
+    }
+
 }

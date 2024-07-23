@@ -3,6 +3,7 @@ package com.gringotts.accountservice.service;
 
 import com.gringotts.accountservice.model.dto.AccountDto;
 import com.gringotts.accountservice.model.dto.AccountStatusUpdate;
+import com.gringotts.accountservice.model.dto.external.TransactionResponse;
 import com.gringotts.accountservice.model.dto.response.Response;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface AccountService {
     Response closeAccount(String accountNumber);
 
     AccountDto readAccountByUserId(Long userId);
+
+    public List<TransactionResponse> getTransactionsFromAccountId(String accountId);
 }
