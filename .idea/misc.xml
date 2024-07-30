@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/Account-Service/pom.xml" />
         <option value="$PROJECT_DIR$/Service-Registry/pom.xml" />
         <option value="$PROJECT_DIR$/Sequence-Generator/pom.xml" />
+        <option value="$PROJECT_DIR$/Transaction-Service/pom.xml" />
       </list>
     </option>
   </component>

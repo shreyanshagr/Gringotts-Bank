@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Account-Service" />
+        <module name="Transaction-Service" />
         <module name="Sequence-Generator" />
         <module name="User-Service" />
         <module name="Service-Registry" />
@@ -19,6 +20,7 @@
       <module name="Account-Service" options="-parameters" />
       <module name="Sequence-Generator" options="-parameters" />
       <module name="Service-Registry" options="-parameters" />
+      <module name="Transaction-Service" options="-parameters" />
       <module name="User-Service" options="-parameters" />
     </option>
   </component>
