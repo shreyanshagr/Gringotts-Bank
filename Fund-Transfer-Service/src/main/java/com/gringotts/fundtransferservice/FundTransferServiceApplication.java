@@ -1,4 +1,4 @@
-package com.gringotts.accountservice;
+package com.gringotts.fundtransferservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class AccountServiceApplication {
+public class FundTransferServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AccountServiceApplication.class, args);
+		SpringApplication.run(FundTransferServiceApplication.class, args);
 	}
 
 }

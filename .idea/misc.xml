@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/Service-Registry/pom.xml" />
         <option value="$PROJECT_DIR$/Sequence-Generator/pom.xml" />
         <option value="$PROJECT_DIR$/Transaction-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/Fund-Transfer-Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Fund-Transfer-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
       </list>
     </option>
   </component>

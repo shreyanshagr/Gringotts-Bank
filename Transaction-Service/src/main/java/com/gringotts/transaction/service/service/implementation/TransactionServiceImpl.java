@@ -40,15 +40,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Value("${spring.application.ok}")
     private String ok;
 
-    /**
-     * Adds a transaction based on the provided TransactionDto.
-     *
-     * @param  transactionDto  the TransactionDto object containing the transaction details
-     * @return                 a Response object indicating the success of the transaction
-     * @throws ResourceNotFound     if the requested account is not found on the server
-     * @throws AccountStatusException     if the account is inactive or closed
-     * @throws InsufficientBalance     if there is insufficient balance in the account
-     */
     @Override
     public Response addTransaction(TransactionDto transactionDto) {
 

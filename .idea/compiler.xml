@@ -9,15 +9,23 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Account-Service" />
         <module name="Transaction-Service" />
+        <module name="Fund-Transfer-Service" />
         <module name="Sequence-Generator" />
+        <module name="ApiGateway" />
         <module name="User-Service" />
         <module name="Service-Registry" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Fund-Transfer-Microservice" target="22" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Account-Service" options="-parameters" />
+      <module name="ApiGateway" options="-parameters" />
+      <module name="Fund-Transfer-Microservice" options="-parameters" />
+      <module name="Fund-Transfer-Service" options="-parameters" />
       <module name="Sequence-Generator" options="-parameters" />
       <module name="Service-Registry" options="-parameters" />
       <module name="Transaction-Service" options="-parameters" />

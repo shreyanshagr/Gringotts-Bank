@@ -23,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,8 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final KeycloakService keycloakService;
-    private final AccountService accountService;
+    @Autowired
+    private AccountService accountService;
 
     private final UserMapper userMapper = new UserMapper();
 

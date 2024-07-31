@@ -24,6 +24,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<Response> createUser(@RequestBody CreateUser userDto) {
+        System.err.println("iknfibrfngkrf");
         log.info("creating user with: {}", userDto.toString());
         return ResponseEntity.ok(userService.createUser(userDto));
     }
@@ -57,8 +58,8 @@ public class UserController {
     }
 
 
-//    @GetMapping("/accounts/{accountId}")
-//    public ResponseEntity<UserDto> readUserByAccountId(@PathVariable String accountId) {
-//        return ResponseEntity.ok(userService.readUserByAccountId(accountId));
-//    }
+    @GetMapping("/accounts/{accountId}")
+    public ResponseEntity<UserDto> readUserByAccountId(@PathVariable String accountId) {
+        return ResponseEntity.ok(userService.readUserByAccountId(accountId));
+    }
 }
